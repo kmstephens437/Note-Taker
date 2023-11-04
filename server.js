@@ -5,8 +5,8 @@ const path = require('path');
 //initializing express app
 const app = express();
 
-//Hardcoding port tp 3001
-const port = 3001;
+//giving option of using env port info from Heroku or my hardcoded port at 3001
+const port = process.envPORT || 3001;
 
 //Setrting up static middleware to allow access to public forled to deliver static files
 app.use(express.static('public'));
