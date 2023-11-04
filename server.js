@@ -16,6 +16,6 @@ app.use(express.static('public'));
 
 
 //one time function to have app start lietneing to previously indicated port.
-app.listen(PORT, ( =>    
+app.listen(PORT, () =>    
     console.log('Note Taker listening at http://localhost:${PORT}')
-    ));
+    );
