@@ -1,9 +1,6 @@
 //requiring express and path packages
 const express = require('express');
-const api = require('./routes/notes');
 const path = require('path');
-
-require('./routes/routes')
 
 //initializing express app
 const app = express();
@@ -18,7 +15,15 @@ app.use(express.urlencoded({extended:true}));
 //Setting up Middleware to allow JS objects to be passed
 app.use(express.json());
 //Setting up Middleware to use API
-app.use('/api',api);
+
+app.get('/notes', (req,res) =>
+    res.sendFile(path.join(__dirname, '../public/notes.html'))
+);
+
+app.get('/',(req,res) =>
+res.sendFile(path.join(__dirname, '../public/index.html'))
+);
+
 
 
 //one time function to have app start listening to previously indicated port options.
