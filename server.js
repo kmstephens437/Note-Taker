@@ -17,7 +17,15 @@ app.use(express.urlencoded({extended:true}));
 //Setting up Middleware to allow JS objects to be passed
 app.use(express.json());
 
+//require('./routes/routes')
 
+app.get('/', (req,res) => {
+    res.sendFile(path.join(__dirname, './public/notes.html'))
+})
+
+app.get('/',(req,res) => {
+    res.sendFile(path.join(__dirname, './public/index.html'))
+});
 
 
 
